@@ -1,0 +1,50 @@
+package com.java.design.pattern.Creational.builders;
+
+class Computer {
+
+    private final String CPU;
+    private final String RAM;
+    private final String storage;
+    private final boolean graphicsCard;
+    private final boolean bluetooth;
+
+    private Computer(Builder builder) {
+        this.CPU = builder.CPU;
+        this.RAM = builder.RAM;
+        this.storage = builder.storage;
+        this.graphicsCard = builder.graphicsCard;
+        this.bluetooth = builder.bluetooth;
+    }
+
+    public static class Builder {
+        private final String CPU;
+        private final String RAM;
+        private String storage;
+        private boolean graphicsCard;
+        private boolean bluetooth;
+
+        public Builder(String CPU, String RAM) {
+            this.CPU = CPU;
+            this.RAM = RAM;
+        }
+
+        public Builder storage(String storage) {
+            this.storage = storage;
+            return this;
+        }
+
+        public Builder graphicsCard(boolean value) {
+            this.graphicsCard = value;
+            return this;
+        }
+
+        public Builder bluetooth(boolean value) {
+            this.bluetooth = value;
+            return this;
+        }
+
+        public Computer build() {
+            return new Computer(this);
+        }
+    }
+}

@@ -1,0 +1,16 @@
+package com.java.design.pattern.Behavioral.strategy;
+
+import com.java.design.pattern.Behavioral.strategy.impl.CreditCardPayment;
+import com.java.design.pattern.Behavioral.strategy.impl.PayPalPayment;
+
+public class Main {
+    public static void main(String[] args) {
+        ShoppingCart cart = new ShoppingCart();
+
+        cart.setPaymentStrategy(new CreditCardPayment());
+        cart.checkout(100);
+
+        cart.setPaymentStrategy(new PayPalPayment());
+        cart.checkout(200);
+    }
+}
